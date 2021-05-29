@@ -108,5 +108,5 @@ dist
 build/
 
 #lockfiles
-yarn.lock
+# yarn.lock
 
