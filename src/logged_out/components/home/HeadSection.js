@@ -123,8 +123,7 @@ function HeadSection(props) {
                         <Typography
                           variant={isWidthUp("lg", width) ? "h3" : "h4"}
                         >
-                          Free Template for building a SaaS app using
-                          Material-UI
+                          Moving is Stressful, let us help you. 
                         </Typography>
                       </Box>
                       <div>
@@ -133,8 +132,7 @@ function HeadSection(props) {
                             variant={isWidthUp("lg", width) ? "h6" : "body1"}
                             color="textSecondary"
                           >
-                            Lorem ipsum dolor sit amet, consetetur sadipscing
-                            elitr, sed diam nonumy eirmod tempor invidunt
+                            With Move Butler, you can set up utilities, services and insurance. FREE of charge!
                           </Typography>
                         </Box>
                         <Button
@@ -143,9 +141,9 @@ function HeadSection(props) {
                           fullWidth
                           className={classes.extraLargeButton}
                           classes={{ label: classes.extraLargeButtonLabel }}
-                          href="https://github.com/dunky11/react-saas-template"
+                          href="/questions"
                         >
-                          Download from GitHub
+                          Get Started Today
                         </Button>
                       </div>
                     </Box>
@@ -153,7 +151,7 @@ function HeadSection(props) {
                   <Hidden smDown>
                     <Grid item md={6}>
                       <ZoomImage
-                        src={`${process.env.PUBLIC_URL}/images/logged_out/headerImage.jpg`}
+                        src={`${process.env.PUBLIC_URL}/images/logged_out/headerImage1.jpg`}
                         className={classes.image}
                         alt="header example"
                       />

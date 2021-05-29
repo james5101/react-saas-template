@@ -30,6 +30,7 @@ import MessagePopperButton from "./MessagePopperButton";
 import SideDrawer from "./SideDrawer";
 import Balance from "./Balance";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
+import logo  from "../../../images/logo.png";
 
 const styles = (theme) => ({
   appBar: {
@@ -228,7 +229,8 @@ function NavBar(props) {
               </Box>
             </Hidden>
             <Hidden xsDown>
-              <Typography
+            <img src={logo} style={{'height':'100','width':'100'}}/>
+              {/* <Typography
                 variant="h4"
                 className={classes.brandText}
                 display="inline"
@@ -243,7 +245,7 @@ function NavBar(props) {
                 color="secondary"
               >
                 Ver
-              </Typography>
+              </Typography> */}
             </Hidden>
           </Box>
           <Box

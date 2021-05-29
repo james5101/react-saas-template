@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
+  Avatar,
   AppBar,
   Toolbar,
   Typography,
@@ -16,6 +17,8 @@ import HowToRegIcon from "@material-ui/icons/HowToReg";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import BookIcon from "@material-ui/icons/Book";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
+import logo  from "../../../images/logo.png";
+import Image from "material-ui-image";
 
 const styles = theme => ({
   appBar: {
@@ -56,6 +59,11 @@ function NavBar(props) {
       icon: <HomeIcon className="text-white" />
     },
     {
+      link: "/questions",
+      name: "Get Started",
+      icon: <HomeIcon className="text-white" />
+    },
+    {
       link: "/blog",
       name: "Blog",
       icon: <BookIcon className="text-white" />
@@ -76,13 +84,14 @@ function NavBar(props) {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <div>
+          {/* <img src={logo} style={{'height':'100','width':'100'}}/> */}
             <Typography
               variant="h4"
               className={classes.brandText}
               display="inline"
               color="primary"
             >
-              Wa
+              Move
             </Typography>
             <Typography
               variant="h4"
@@ -90,7 +99,7 @@ function NavBar(props) {
               display="inline"
               color="secondary"
             >
-              Ver
+              Butler
             </Typography>
           </div>
           <div>
