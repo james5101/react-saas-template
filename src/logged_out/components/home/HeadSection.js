@@ -16,6 +16,10 @@ import WaveBorder from "../../../shared/components/WaveBorder";
 import ZoomImage from "../../../shared/components/ZoomImage";
 
 const styles = (theme) => ({
+  headerText: {
+    fontFamily: "Montserrat",
+    fontWeight: 800,
+  },
   extraLargeButtonLabel: {
     fontSize: theme.typography.body1.fontSize,
     [theme.breakpoints.up("sm")]: {
@@ -121,6 +125,7 @@ function HeadSection(props) {
                     >
                       <Box mb={4}>
                         <Typography
+                          className={classes.headerText}
                           variant={isWidthUp("lg", width) ? "h3" : "h4"}
                         >
                           Moving is Stressful, let us help you. 
@@ -131,6 +136,7 @@ function HeadSection(props) {
                           <Typography
                             variant={isWidthUp("lg", width) ? "h6" : "body1"}
                             color="textSecondary"
+
                           >
                             With Move Butler, you can set up utilities, services and insurance. FREE of charge!
                           </Typography>
@@ -163,12 +169,12 @@ function HeadSection(props) {
           </Box>
         </div>
       </div>
-      <WaveBorder
+      {/* <WaveBorder
         upperColor={theme.palette.secondary.main}
         lowerColor="#FFFFFF"
         className={classes.waveBorder}
         animationNegativeDelay={2}
-      />
+      /> */}
     </Fragment>
   );
 }

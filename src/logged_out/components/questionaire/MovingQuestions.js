@@ -9,7 +9,7 @@ import { MenuItem } from '@material-ui/core';
 export default function MovingQuestionsForm() {
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" gutterBottom >
         Moving Questions
       </Typography>
       <Grid container spacing={3}>

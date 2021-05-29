@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography, isWidthUp, withWidth } from "@material-ui/core";
+import { Grid, Typography, isWidthUp, withWidth,withStyles } from "@material-ui/core";
+import classNames from "classnames";
 import CodeIcon from "@material-ui/icons/Code";
 import BuildIcon from "@material-ui/icons/CheckBox";
 import ComputerIcon from "@material-ui/icons/Computer";
@@ -13,8 +14,14 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import calculateSpacing from "./calculateSpacing";
 import FeatureCard from "./FeatureCard";
 
-const iconSize = 30;
-
+const iconSize = 50;
+const styles = (theme) => ({
+  headerText: {
+    fontFamily: "Montserrat",
+    fontWeight: 800,
+  },
+  
+});
 const features = [
   {
     color: "#00C853",
@@ -46,11 +53,11 @@ const features = [
 ];
 
 function FeatureSection(props) {
-  const { width } = props;
+  const { width, classes,theme } = props;
   return (
     <div style={{ backgroundColor: "#FFFFFF" }}>
       <div className="container-fluid lg-p-top">
-        <Typography variant="h3" align="center" className="lg-mg-bottom">
+        <Typography  variant="h3" align="center" className={classNames(classes.headerText, "lg-mg-bottom")} gutterTop>
           How it Works
         </Typography>
         <div className="container-fluid">
@@ -71,6 +78,7 @@ function FeatureSection(props) {
                   color={element.color}
                   headline={element.headline}
                   text={element.text}
+                  style={{marginRight:"20px"}}
                 />
               </Grid>
             ))}
@@ -82,7 +90,11 @@ function FeatureSection(props) {
 }
 
 FeatureSection.propTypes = {
-  width: PropTypes.string.isRequired
+  classes: PropTypes.object.isRequired,
+  width: PropTypes.string.isRequired,
+  theme: PropTypes.object,
 };
 
-export default withWidth()(FeatureSection);
+export default withWidth()(
+  withStyles(styles, { withTheme: true })(FeatureSection)
+);

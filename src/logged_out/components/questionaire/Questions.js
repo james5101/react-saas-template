@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
+    marginTop: '150px',
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
       width: 600,
       marginLeft: 'auto',
@@ -103,7 +104,7 @@ useEffect(() => {
       <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
+          <Typography component="h1" variant="h4" align="center" gutterTop>
             Moving Questions
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
