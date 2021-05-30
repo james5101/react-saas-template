@@ -16,6 +16,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import calculateSpacing from "./calculateSpacing";
+import Svg from "./forms.svg"
 
 const styles = theme => ({
     card: {
