@@ -157,7 +157,7 @@ function HeadSection(props) {
                   <Hidden smDown>
                     <Grid item md={6}>
                       <ZoomImage
-                        src={`${process.env.PUBLIC_URL}/images/logged_out/headerImage1.jpg`}
+                        src={`${process.env.PUBLIC_URL}/images/logged_out/MovingVan2.svg`}
                         className={classes.image}
                         alt="header example"
                       />
