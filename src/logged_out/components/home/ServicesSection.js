@@ -76,8 +76,8 @@ function ServicesSection(props) {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {cards.map((card) => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
+                       
+                            <Grid item  xs={12} sm={6} md={4}>
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
@@ -103,7 +103,64 @@ function ServicesSection(props) {
                                     </CardActions>
                                 </Card>
                             </Grid>
-                        ))}
+
+                            <Grid item  xs={12} sm={6} md={4}>
+                                <Card className={classes.card}>
+                                    <CardMedia
+                                        className={classes.cardMedia}
+                                        image={`${process.env.PUBLIC_URL}/images/logged_out/adt.png`}
+                                        title="Image title"
+                                    />
+                                    <CardContent className={classes.cardContent}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            ADT
+                                        </Typography>
+                                        <Typography>
+                                            Prices starting at $64.99 a month.
+                                        </Typography>
+                                        <Typography>
+                                            Free Ring
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="large" href="/questions" color="primary">
+                                            Check Availiabity
+                                    </Button>
+
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+
+                            <Grid item  xs={12} sm={6} md={4}>
+                                <Card className={classes.card}>
+                                    <CardMedia
+                                        className={classes.cardMedia}
+                                        image={`${process.env.PUBLIC_URL}/images/logged_out/solar.png`}
+                                        title="Image title"
+                                    />
+                                    <CardContent className={classes.cardContent}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            Solar-Fit
+                                        </Typography>
+                                        <Typography>
+                                            Prices starting at $64.99 a month.
+                                        </Typography>
+                                        <Typography>
+                                            Tax incentives
+                                            Free Installation
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="large" href="/questions" color="primary">
+                                            Check Availiabity
+                                    </Button>
+
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+
+                            
+                        
                     </Grid>
                 </Container>
             </div>
