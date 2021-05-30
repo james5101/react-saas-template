@@ -20,11 +20,13 @@ import calculateSpacing from "./calculateSpacing";
 const styles = theme => ({
     card: {
         height: '100%',
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        height: 100,
+        paddingTop: '100%', // 16:9
     },
     cardContent: {
         flexGrow: 1,
@@ -79,7 +81,7 @@ function ServicesSection(props) {
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image="http://logok.org/wp-content/uploads/2014/04/ATT-logo-2016-640x480.png"
+                                        image={`${process.env.PUBLIC_URL}/images/logged_out/att.png`}
                                         title="Image title"
                                     />
                                     <CardContent className={classes.cardContent}>
