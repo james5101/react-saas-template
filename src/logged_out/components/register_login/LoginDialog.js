@@ -14,6 +14,7 @@ import FormDialog from "../../../shared/components/FormDialog";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
+import AuthService from "../services/auth.service";
 
 const styles = (theme) => ({
   forgotPassword: {
@@ -50,24 +51,32 @@ function LoginDialog(props) {
   const loginEmail = useRef();
   const loginPassword = useRef();
 
+  
+
   const login = useCallback(() => {
     setIsLoading(true);
     setStatus(null);
-    if (loginEmail.current.value !== "test@web.com") {
-      setTimeout(() => {
-        setStatus("invalidEmail");
-        setIsLoading(false);
-      }, 1500);
-    } else if (loginPassword.current.value !== "HaRzwc") {
-      setTimeout(() => {
-        setStatus("invalidPassword");
-        setIsLoading(false);
-      }, 1500);
-    } else {
-      setTimeout(() => {
+    // if (loginEmail.current.value !== "test@web.com") {
+    //   setTimeout(() => {
+    //     setStatus("invalidEmail");
+    //     setIsLoading(false);
+    //   }, 1500);
+    // } else if (loginPassword.current.value !== "HaRzwc") {
+    //   setTimeout(() => {
+    //     setStatus("invalidPassword");
+    //     setIsLoading(false);
+    //   }, 1500);
+    // } else {
+    //   setTimeout(() => {
+    //     history.push("/c/dashboard");
+    //   }, 150);
+    // }
+    AuthService.login(loginEmail,loginPassword).then(
+      () => {
         history.push("/c/dashboard");
-      }, 150);
-    }
+        window.location.reload();
+      }
+    )
   }, [setIsLoading, loginEmail, loginPassword, history, setStatus]);
 
   return (
