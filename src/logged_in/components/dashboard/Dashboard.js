@@ -1,48 +1,48 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import db from "../firebase/firebase";
 import { Typography, Box } from "@material-ui/core";
-import SettingsArea from "./SettingsArea";
-import UserDataArea from "./UserDataArea";
-import AccountInformationArea from "./AccountInformationArea";
-import StatisticsArea from "./StatisticsArea";
 
 function Dashboard(props) {
-  const {
-    selectDashboard,
-    CardChart,
-    statistics,
-    toggleAccountActivation,
-    pushMessageToSnackbar,
-    targets,
-    setTargets,
-    isAccountActivated,
-  } = props;
+  const [orders, setOrders] = useState([]);
+  const [text, setText] = useState("");
 
-  useEffect(selectDashboard, [selectDashboard]);
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const fetchOrders = async () => {
+    db.collection("orders").onSnapshot((snapshot) => {
+      const listOrders = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log(listOrders);
+      setOrders(listOrders);
+    });
+    return orders;
+  };
 
   return (
     <Fragment>
-      <StatisticsArea CardChart={CardChart} data={statistics} />
       <Box mt={4}>
-        <Typography variant="subtitle1" gutterBottom>
-          Your Account
-        </Typography>
+        {orders.map((order) => {
+          return (
+            <Typography variant="subtitle1" gutterBottom>
+              Your Orders
+              <br />
+              Order Number: {order.order_no}
+              <br />
+              Status: {order.status}
+              <br />
+              Moving Company: {order.moving_company}
+            </Typography>
+          );
+        })}
       </Box>
-      <AccountInformationArea
-        isAccountActivated={isAccountActivated}
-        toggleAccountActivation={toggleAccountActivation}
-      />
+
       <Box mt={4}>
-        <Typography variant="subtitle1" gutterBottom>
-          Settings
-        </Typography>
       </Box>
-      <SettingsArea pushMessageToSnackbar={pushMessageToSnackbar} />
-      <UserDataArea
-        pushMessageToSnackbar={pushMessageToSnackbar}
-        targets={targets}
-        setTargets={setTargets}
-      />
     </Fragment>
   );
 }

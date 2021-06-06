@@ -167,40 +167,40 @@ function NavBar(props) {
         mobile: <DashboardIcon className="text-white" />,
       },
     },
-    {
-      link: "/c/posts",
-      name: "Posts",
-      onClick: closeMobileDrawer,
-      icon: {
-        desktop: (
-          <ImageIcon
-            className={
-              selectedTab === "Posts" ? classes.textPrimary : "text-white"
-            }
-            fontSize="small"
-          />
-        ),
-        mobile: <ImageIcon className="text-white" />,
-      },
-    },
-    {
-      link: "/c/subscription",
-      name: "Subscription",
-      onClick: closeMobileDrawer,
-      icon: {
-        desktop: (
-          <AccountBalanceIcon
-            className={
-              selectedTab === "Subscription"
-                ? classes.textPrimary
-                : "text-white"
-            }
-            fontSize="small"
-          />
-        ),
-        mobile: <AccountBalanceIcon className="text-white" />,
-      },
-    },
+    // {
+    //   link: "/c/posts",
+    //   name: "Posts",
+    //   onClick: closeMobileDrawer,
+    //   icon: {
+    //     desktop: (
+    //       <ImageIcon
+    //         className={
+    //           selectedTab === "Posts" ? classes.textPrimary : "text-white"
+    //         }
+    //         fontSize="small"
+    //       />
+    //     ),
+    //     mobile: <ImageIcon className="text-white" />,
+    //   },
+    // },
+    // {
+    //   link: "/c/subscription",
+    //   name: "Subscription",
+    //   onClick: closeMobileDrawer,
+    //   icon: {
+    //     desktop: (
+    //       <AccountBalanceIcon
+    //         className={
+    //           selectedTab === "Subscription"
+    //             ? classes.textPrimary
+    //             : "text-white"
+    //         }
+    //         fontSize="small"
+    //       />
+    //     ),
+    //     mobile: <AccountBalanceIcon className="text-white" />,
+    //   },
+    // },
     {
       link: "/",
       name: "Logout",
@@ -229,14 +229,14 @@ function NavBar(props) {
               </Box>
             </Hidden>
             <Hidden xsDown>
-            <img src={logo} style={{'height':'100','width':'100'}}/>
-              {/* <Typography
+            {/* <img src={logo} style={{'height':'100','width':'100'}}/> */}
+              <Typography
                 variant="h4"
                 className={classes.brandText}
                 display="inline"
                 color="primary"
               >
-                Wa
+                Move
               </Typography>
               <Typography
                 variant="h4"
@@ -244,8 +244,8 @@ function NavBar(props) {
                 display="inline"
                 color="secondary"
               >
-                Ver
-              </Typography> */}
+                Butler
+              </Typography>
             </Hidden>
           </Box>
           <Box
@@ -254,15 +254,8 @@ function NavBar(props) {
             alignItems="center"
             width="100%"
           >
-            {isWidthUp("sm", width) && (
-              <Box mr={3}>
-                <Balance
-                  balance={2573}
-                  openAddBalanceDialog={openAddBalanceDialog}
-                />
-              </Box>
-            )}
-            <MessagePopperButton messages={messages} />
+  
+           
             <ListItem
               disableGutters
               className={classNames(classes.iconListItem, classes.smBordered)}
@@ -282,13 +275,13 @@ function NavBar(props) {
               )}
             </ListItem>
           </Box>
-          <IconButton
+          {/* <IconButton
             onClick={openDrawer}
             color="primary"
             aria-label="Open Sidedrawer"
           >
             <SupervisorAccountIcon />
-          </IconButton>
+          </IconButton> */}
           <SideDrawer open={isSideDrawerOpen} onClose={closeDrawer} />
         </Toolbar>
       </AppBar>

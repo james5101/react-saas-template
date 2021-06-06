@@ -7,9 +7,11 @@ import Blog from "./blog/Blog";
 import BlogPost from "./blog/BlogPost";
 import useLocationBlocker from "../../shared/functions/useLocationBlocker";
 import Questions from "./questionaire/Questions";
+import Offers from "./offers/Offers";
 
 function Routing(props) {
-  const { blogPosts, selectBlog, selectHome, selectQuestions } = props;
+  const { blogPosts, selectBlog, selectHome, selectQuestions, selectOffers } =
+    props;
   useLocationBlocker();
   return (
     <Switch>
@@ -34,9 +36,19 @@ function Routing(props) {
         selectBlog={selectBlog}
         blogPosts={blogPosts}
       />
-      <PropsRoute exact path="/questions" component={Questions} selectQuestions={selectQuestions} />
+      <PropsRoute
+        exact
+        path="/offers"
+        component={Offers}
+        selectQuestions={selectOffers}
+      />
+      <PropsRoute
+        exact
+        path="/questions"
+        component={Questions}
+        selectQuestions={selectQuestions}
+      />
       <PropsRoute path="/" component={Home} selectHome={selectHome} />
-      
     </Switch>
   );
 }
@@ -46,6 +58,7 @@ Routing.propTypes = {
   selectHome: PropTypes.func.isRequired,
   selectBlog: PropTypes.func.isRequired,
   selectQuestions: PropTypes.func.isRequired,
+  selectOffers: PropTypes.func.isRequired,
 };
 
 export default memo(Routing);
