@@ -191,6 +191,43 @@ export default function Offers() {
     );
   });
 
+  const listSecurityServices = securityServices.map((serv) => {
+    return (
+      <TabPanel value={value} index={1}>
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/062014/screen_shot_2014-06-26_at_1.26.06_pm.png?itok=coNwSS2m"
+              title="Contemplative Reptile"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {serv.company}
+              </Typography>
+              <Typography variant="body2" color="textPrimary" component="p">
+                Starting at {serv.price}
+              </Typography>
+              <ul>
+                <li>24/7 Surveallience </li>
+                <li>Free Amazon Alexa</li>
+              </ul>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => addToCart(serv)}
+            >
+              Add To Cart
+            </Button>
+          </CardActions>
+        </Card>
+      </TabPanel>
+    );
+  });
+
   return (
     <CartProvider value={(internetservices, securityServices)}>
       <React.Fragment>
@@ -208,6 +245,7 @@ export default function Offers() {
           <Tab label="Electric/Solar" {...a11yProps(2)} />
         </Tabs>
         {listInternetServices}
+        {listSecurityServices}
         {/* </AppBar> */}
         {/* {internetservices.map((service) => {
           return (
@@ -256,7 +294,7 @@ export default function Offers() {
           );
         })} */}
 
-        {securityServices.map((serv) => {
+        {/* {securityServices.map((serv) => {
           return (
             <TabPanel value={value} index={1}>
               <Card className={classes.card}>
@@ -291,7 +329,7 @@ export default function Offers() {
               </Card>
             </TabPanel>
           );
-        })}
+        })} */}
         {/* <TabPanel value={value} index={1}>
           Item Three
         </TabPanel> */}
